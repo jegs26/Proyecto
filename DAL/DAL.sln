@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALSQLServer", "DALSQLServer\DALSQLServer.csproj", "{D4B740EF-15BB-486F-BA63-6CF55661EB5B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TEST", "TEST", "{7AE36D31-6B78-48ED-A226-611C6E40E464}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALSQLServer.TEST", "TEST\DALSQLServer.TEST\DALSQLServer.TEST.csproj", "{D5730437-B77F-487C-AF75-19ED59995FEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{D4B740EF-15BB-486F-BA63-6CF55661EB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B740EF-15BB-486F-BA63-6CF55661EB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B740EF-15BB-486F-BA63-6CF55661EB5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5730437-B77F-487C-AF75-19ED59995FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5730437-B77F-487C-AF75-19ED59995FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5730437-B77F-487C-AF75-19ED59995FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5730437-B77F-487C-AF75-19ED59995FEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D5730437-B77F-487C-AF75-19ED59995FEA} = {7AE36D31-6B78-48ED-A226-611C6E40E464}
 	EndGlobalSection
 EndGlobal

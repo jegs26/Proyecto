@@ -8,5 +8,6 @@ namespace DALSQLServer
 {
     public class Parametro
     {
+        
     }
 }

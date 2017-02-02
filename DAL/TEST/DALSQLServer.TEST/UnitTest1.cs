@@ -9,6 +9,10 @@ namespace DALSQLServer.TEST
         [TestMethod]
         public void TestMethod1()
         {
+            DAL objDAL = new DAL();
+            objDAL.Conectar("Conexion");
+
+            string sBD = objDAL.sBD;
         }
     }
 }

@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DALSQLServer
 {
     public class DAL
     {
         SqlConnection objConexion;
-        public string sBD;// { get; }
+        public string strBD;
+        public string strCadenaConexion;
+        public string strServidor;
 
         public DAL()
         {
             try
             {
-                sBD = string.Empty;
+                strBD = string.Empty;
+                strCadenaConexion = string.Empty;
+                strServidor = string.Empty;
             }
             catch (Exception ex)
             {
@@ -24,17 +24,17 @@ namespace DALSQLServer
             }
         }
 
-        public DAL(string sNombreConexion)
+        public DAL(string strNombreConexion)
         {
-            Conectar(sNombreConexion);
+            Conectar(strNombreConexion);
         }
 
-        public DAL(string sServidor, string sBD, string sUsuario, string sContraseña)
+        public DAL(string strServidor, string strBD, string strUsuario, string strContraseña)
         {
             try
             {
-                string sConexion = "";
-                EstablecerConexion(sConexion);
+                string strConexion = "Data Source=" + strServidor + ";Initial Catalog=" + strBD + ";User Id=" + strUsuario + ";Password=" + strContraseña + "";
+                EstablecerConexion(strConexion);
             }
             catch (Exception ex)
             {
@@ -42,13 +42,16 @@ namespace DALSQLServer
             }
         }
 
-        public void Conectar(string sNombreConexion)
+        public void Conectar(string strNombreConexion)
         {
             try
             {
-                var connection = System.Configuration.ConfigurationManager.ConnectionStrings[sNombreConexion].ConnectionString;
+                var connection = System.Configuration.ConfigurationManager.ConnectionStrings[strNombreConexion].ConnectionString;
                 objConexion = new SqlConnection(connection);
-                sBD = objConexion.Database;
+                objConexion.Open();
+                strBD = objConexion.Database;
+                strCadenaConexion = objConexion.ConnectionString;
+                strServidor = objConexion.DataSource;
             }
             catch (Exception ex)
             {
@@ -57,11 +60,15 @@ namespace DALSQLServer
 
         }
 
-        public void EstablecerConexion(string sCadenaConexion)
+        public void EstablecerConexion(string strCadenaConexion)
         {
             try
             {
-                objConexion = new SqlConnection(sCadenaConexion);
+                objConexion = new SqlConnection(strCadenaConexion);
+                objConexion.Open();
+                strBD = objConexion.Database;
+                strCadenaConexion = objConexion.ConnectionString;
+                strServidor = objConexion.DataSource;
             }
             catch (Exception ex)
             {
